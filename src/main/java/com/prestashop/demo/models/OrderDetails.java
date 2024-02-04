@@ -1,12 +1,17 @@
 package com.prestashop.demo.models;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderDetails {
     private String firstName;
     private String lastName;
     private String email;
     private String address;
     private String postalCode;
-    private String City;
+    private String city;
 
     public String getFirstName() {
         return firstName;
@@ -54,11 +59,11 @@ public class OrderDetails {
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public OrderDetails setCity(String city) {
-        City = city;
+        this.city = city;
         return this;
     }
 }

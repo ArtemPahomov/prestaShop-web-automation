@@ -9,11 +9,13 @@ version = '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
+
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
     }
 }
+
 ext {
     cucumber = '6.11.0'
     selenide = '7.0.4'
@@ -23,34 +25,35 @@ ext {
     javafaker = '1.0.2'
     slf4j = '2.0.0'
     lombok = '1.18.24'
-    manager ='5.5.3'
     allure = '2.19.0'
     allureVersion = '2.24.0'
     aspectJVersion = '1.9.20.1'
 }
+
 configurations {
     agent {
         canBeResolved = true
         canBeConsumed = true
     }
 }
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: "$cucumber"
+
     implementation group: 'org.assertj', name: 'assertj-core', version: "$assertj"
     implementation group: 'com.codeborne', name: 'selenide', version: "$selenide"
     implementation group: 'junit', name: 'junit', version: "$junit"
-    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: "$cucumberJunit"
     implementation group: 'com.github.javafaker', name: 'javafaker', version: "$javafaker"
     implementation group: 'org.slf4j', name: 'slf4j-api', version: "$slf4j"
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: "$slf4j"
     implementation group: 'org.projectlombok', name: 'lombok', version: "$lombok"
-    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: "$manager"
     implementation group: 'io.qameta.allure', name: 'allure-selenide', version: "$allure"
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: "$cucumberJunit"
     testImplementation platform("io.qameta.allure:allure-bom:$allureVersion")
     testImplementation "io.qameta.allure:allure-cucumber7-jvm"
     testImplementation "io.qameta.allure:allure-junit-platform"
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation group: 'io.cucumber', name: 'cucumber-java', version: "$cucumber"
     agent "org.aspectj:aspectjweaver:$aspectJVersion"
 }
 
@@ -62,7 +65,6 @@ task executeTests() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
-//                    '--plugin', 'html:target/cucumber-report.html',
                     '--plugin', 'io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm',
                     '--glue', 'com.prestashop.demo',
                     'src/test/resources']
