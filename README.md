@@ -34,5 +34,7 @@
 ```sh
 ./gradlew allureServe
 ```
+- [Allure Screen 1](https://github.com/ArtemPahomov/repo-for-tech-tasks/blob/screenshot/src/test/resources/screen/Allure1.jpg)
+- [Allure Screen 2](https://github.com/ArtemPahomov/repo-for-tech-tasks/blob/screenshot/src/test/resources/screen/Allure2.jpg)
 ## Исполнитель
 - Пахомов Артем — AQA Engineer Java
