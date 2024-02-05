@@ -9,7 +9,7 @@
 - [Allure Report](#отчет)
 
 ## Технологии
-- Java
+- Java 17
 - Selenide
 - Cucumber
 - AssertJ
@@ -34,5 +34,7 @@
 ```sh
 ./gradlew allureServe
 ```
+![Результаты тестов](https://drive.google.com/file/d/1s_TFAdmUhF7U44p6afkXBRLatenwsaJ7/view?usp=sharing)
+![Результаты тестов](https://drive.google.com/file/d/1-e1_nPuhnN0li8daSnxWs3vJruukLkra/view?usp=sharing)
 ## Исполнитель
 - Пахомов Артем — AQA Engineer Java
