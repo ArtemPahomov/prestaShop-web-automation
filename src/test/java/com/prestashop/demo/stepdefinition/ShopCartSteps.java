@@ -25,7 +25,7 @@ public class ShopCartSteps extends ShopCartPage {
 
     @Then("user see {int} item in shopping cart")
     public void userSeeItemInShoppingCart(int uniqItem) {
-        Assertions.assertThat(ShopCartPage.ITEMS_IN_SHOP_CART).hasSize(uniqItem);
+        ShopCartPage.ITEMS_IN_SHOP_CART.shouldHave(CollectionCondition.size(uniqItem));
     }
 
     @And("user delete item from shopping cart")
