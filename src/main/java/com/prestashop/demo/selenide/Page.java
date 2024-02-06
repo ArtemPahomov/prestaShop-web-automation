@@ -38,4 +38,14 @@ public interface Page {
         LOGGER.debug("WebElement: {} should have the follow conditions: {}", element, condition);
         return element.shouldBe(condition, time);
     }
+
+    static SelenideElement assertCondition(SelenideElement element, WebElementCondition... condition) {
+        LOGGER.debug("WebElement: {} should have the follow conditions: {}", element, condition);
+        return element.shouldBe(condition);
+    }
+
+    static ElementsCollection assertCondition(ElementsCollection elements, WebElementsCondition... condition) {
+        LOGGER.debug("WebElement Collection: {} should have the follow conditions: {}", elements, condition);
+        return elements.shouldBe(condition);
+    }
 }

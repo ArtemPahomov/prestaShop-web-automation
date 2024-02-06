@@ -1,12 +1,11 @@
 package com.prestashop.demo.stepdefinition;
 
-import com.codeborne.selenide.WebElementsCondition;
+import com.codeborne.selenide.Condition;
 import com.prestashop.demo.page.MainPage;
 import com.prestashop.demo.selenide.Page;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.assertj.core.api.Assertions;
 
 import java.time.Duration;
 import java.util.Random;
@@ -24,11 +23,11 @@ public class MainSteps extends MainPage {
 
     @And("user open one more item")
     public void userOpenOneMoreItem() {
-        Page.at(MainPage.class).clickWhenEnabled(MainPage.POPULAR_PRODUCTS.get(new Random().nextInt((MainPage.POPULAR_PRODUCTS.size()))));
+        Page.at(MainPage.class).clickWhenEnabled(MainPage.POPULAR_PRODUCTS.get(new Random().nextInt(2,(MainPage.POPULAR_PRODUCTS.size()))));
     }
 
     @Then("user see banner on main page")
     public void userSeeBannerOnMainPage() {
-        Assertions.assertThat(MainPage.PRODUCT_TITLE.getText()).containsIgnoringCase("Popular Products");
+        Page.assertCondition(MainPage.PRODUCT_TITLE, Condition.exactText("Popular Products"));
     }
 }
