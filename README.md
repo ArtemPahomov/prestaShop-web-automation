@@ -36,6 +36,7 @@ To generate Allure Report, run the commands:
 ./gradlew allureServe
 ```
 [Allure report - successful run](https://github.com/ArtemPahomov/prestaShop-web-automation/tree/master/config/Allure1.jpg)
+
 [Allure report - unsuccessful run](https://github.com/ArtemPahomov/prestaShop-web-automation/tree/master/config/Allure2.jpg)
 ## Executor
 - Pahomov Artem — AQA Engineer Java
